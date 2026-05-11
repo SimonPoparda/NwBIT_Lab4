@@ -7,9 +7,9 @@ show_help() {
 Użycie: skrypt.sh [opcja]
 
 Opcje:
-  --date           Wyświetl dzisiejszą datę
-  --logs [liczba]  Utwórz pliki log (domyślnie 100)
-  --help           Wyświetl tę pomoc
+  --date, -d           Wyświetl dzisiejszą datę
+  --logs, -l [liczba]  Utwórz pliki log (domyślnie 100)
+  --help, -h           Wyświetl tę pomoc
 EOF
 }
 
@@ -32,13 +32,13 @@ create_logs() {
 
 # Obsługa argumentów
 case "$1" in
-    --date)
+    --date|-d)
         show_date
         ;;
-    --logs)
+    --logs|-l)
         create_logs "$2"
         ;;
-    --help)
+    --help|-h)
         show_help
         ;;
     *)
