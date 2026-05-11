@@ -1,2 +1,4 @@
 # Ignoruj wszystkie pliki zawierające "log" w nazwie
 *log*
+# Ignoruj pliki i foldery zawierające "error" w nazwie
+*error*
