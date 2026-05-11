@@ -44,6 +44,20 @@ init_repo() {
     echo "Ścieżka dodana do PATH"
 }
 
+create_errors() {
+    local count=${1:-100}
+
+    for i in $(seq 1 $count); do
+        mkdir -p "error${i}"
+        local filename="error${i}/error${i}.txt"
+        echo "Plik: $filename" > "$filename"
+        echo "Skrypt: skrypt.sh" >> "$filename"
+        echo "Data: $(date '+%Y-%m-%d %H:%M:%S')" >> "$filename"
+    done
+
+    echo "Utworzono $count plików error"
+}
+
 # Obsługa argumentów
 case "$1" in
     --date|-d)
@@ -54,6 +68,9 @@ case "$1" in
         ;;
     --init)
         init_repo "$2"
+        ;;
+    --error|-e)
+        create_errors "$2"
         ;;
     --help|-h)
         show_help
