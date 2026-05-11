@@ -7,9 +7,11 @@ show_help() {
 Użycie: skrypt.sh [opcja]
 
 Opcje:
-  --date, -d           Wyświetl dzisiejszą datę
-  --logs, -l [liczba]  Utwórz pliki log (domyślnie 100)
-  --help, -h           Wyświetl tę pomoc
+  --date, -d                Wyświetl dzisiejszą datę
+  --logs, -l [liczba]       Utwórz pliki log (domyślnie 100)
+  --init [katalog]          Klonuj repozytorium i dodaj do PATH
+  --error, -e [liczba]      Utwórz pliki error (domyślnie 100)
+  --help, -h                Wyświetl tę pomoc
 EOF
 }
 
