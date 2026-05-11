@@ -30,6 +30,20 @@ create_logs() {
     echo "Utworzono $count plików log"
 }
 
+init_repo() {
+    local repo_url="https://github.com/SimonPoparda/NwBIT_Lab4.git"
+    local target_dir="${1:-.}"
+
+    # Klonuj repo
+    git clone "$repo_url" "$target_dir/NwBIT_Lab4"
+
+    # Dodaj do PATH
+    local repo_path="$(cd "$target_dir/NwBIT_Lab4" && pwd)"
+    export PATH="$PATH:$repo_path"
+    echo "Repozytorium sklonowane do: $repo_path"
+    echo "Ścieżka dodana do PATH"
+}
+
 # Obsługa argumentów
 case "$1" in
     --date|-d)
@@ -37,6 +51,9 @@ case "$1" in
         ;;
     --logs|-l)
         create_logs "$2"
+        ;;
+    --init)
+        init_repo "$2"
         ;;
     --help|-h)
         show_help
